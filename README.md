@@ -16,6 +16,19 @@ Ankush's `wifi-pairing-mode` (64c86d7). The class image sits at `main` b5b8c89 (
 `pupper` is any SSH host for the robot (passwordless SSH and sudo required).
 Add `--skip-wifi-pairing` to leave WiFi management alone.
 
+Or run it on the Pupper itself, with no SSH setup from a laptop (what students do in Lab 2):
+
+```bash
+git clone https://github.com/cs123-stanford/pupper_rebase.git && cd pupper_rebase
+./rebase_local.sh --dry-run
+./rebase_local.sh
+```
+
+`rebase_local.sh` runs the same steps and checks in the background and logs to
+`~/cs123-rebase.log`, so a dropped SSH session doesn't stop it (reconnect and `tail -f` the log).
+It ends with `REBASE OK` or `REBASE FAILED`. It doesn't save a manifest; run
+`capture_manifest.sh` from a PC for that.
+
 ## What it does
 
 | Step | Change |
